@@ -44,4 +44,3 @@ try {
 header('Location: crime_input.php');
 exit();
 
-; ?>

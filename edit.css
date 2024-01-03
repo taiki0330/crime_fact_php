@@ -51,93 +51,21 @@ header {
 .header_button.active a {
   color: black;
 }
+
 .header_button:hover {
   /* background-color: rgba(32, 172, 232, 0.5); */
 }
 
 .main_content {
-  background-color: rgb(152, 180, 192);
+  background-color: white;
+  box-shadow: 0 0 5px gray;
   padding: 20px 30px;
 }
-
-.comment {
-  height: auto;
-}
-
-.comment_field {
-  display: flex;
-}
-
-.form {
-  flex: 1;
-}
-
-.input_username,
-.input_comment {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-.input_username label {
-  margin-right: -150px;
-}
-.input_comment label {
-  margin-right: -130px;
-}
-.input_comment input {
-  width: 60%;
-}
-
-.article {
-  flex: 1;
-  height: 200px;
-}
-
-.article .comment_wrapper {
-  background-color: #fff;
-  height: 60%;
-  width: 80%;
-  border: none;
-  padding: 10px 20px;
-  z-index: 10;
-  overflow-y: scroll;  
-}
-.scroll {
-  height: auto;
-}
-.output_username {
-  display: flex;
-}
-.output_username p {
-  margin-bottom: 0;
-}
-.output_username_content {
-  color: green;
-  font-weight: bold;
-}
-.output_comment {
-  margin-top: 5px;
-  margin-left: 50px;
-}
-.comment_content {
-  display: flex;
-}
-.delete_comment {
-  color: #000;
-  margin-top: 5px;
-  margin-left: 80px;
-  font-size: 14px;
-  padding: 0;
-  background: #e61f1f;
-  width: 50px;
-  height: 30px;
-}
-
 /* 事実について */
 .about_fact {
   display: flex;
   margin: 20px 0;
-  padding: 20px 10px;
+  padding: 20px 5px;
   border-radius: 7px;
   background-color: #b1d4e3;
 }
@@ -277,4 +205,21 @@ input {
   margin-top: 20px;
   width: 30%;
   margin-left: 150px;
+}
+
+.button_section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.register_button {
+  width: 300px;
+  background-color: #12994c;
+  border-radius: 5px;
+}
+.delete_button {
+  width: 300px;
+  border-radius: 5px;
+  background-color: rgb(236, 71, 21);
+  color: #fff;
 }

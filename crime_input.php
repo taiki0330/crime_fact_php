@@ -1,16 +1,9 @@
 <?php 
+ini_set('display_errors', 1);
+include('functions.php');
 // DB接続
 // 各種項目設定
-$dbn ='mysql:dbname=incident_fact;charset=utf8mb4;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
-// DB接続
-try {
-  $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-  echo json_encode(["db error" => "{$e->getMessage()}"]);
-  exit();
-}
+$pdo = connect_to_db();
 
 
 // SQL作成&実行
@@ -30,6 +23,12 @@ try {
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// foreach($result as $item) {
+//   echo '<pre>';
+//   var_dump($item);
+//   echo'</pre>';  
+// }
+
 ; ?>
 
 
@@ -39,24 +38,24 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./input.css">
-    <title>Document</title>
+    <title>新規事件登録</title>
 </head>
 <body>
     <div class="inner">
-        <div class="side_bar">
-            <button class="sidebar_button">
+        <header class="header">
+            <button class="header_button">
                 <a href="index.php">トップ</a>
             </button>
-            <button class="sidebar_button">
+            <button class="header_button active">
                 <a href="crime_input.php">新規事件</a>
             </button>
-            <button class="sidebar_button">
+            <button class="header_button">
                 <a href="crime_read.php">事件一覧</a>
             </button>
-            <button class="sidebar_button">
+            <button class="header_button">
                 <a href="crime_input.php">事件検索</a>
             </button>
-        </div>
+        </header>
         <div class="main_content">
             <section class="comment">
                 <div class="comment_field">
@@ -73,13 +72,18 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </form>
                     <article class="article">
                         <div class="comment_wrapper">
-                          <?php foreach($result as $item) : ?>
-                            <div class="output_username">
-                                <p>名前: <span class="output_username_content"><?php echo $item["username"]; ?></span></p>
-                                <p>: <?php echo $item["postdate"]; ?></p>
-                            </div>
-                            <p class="output_comment"><?php echo $item["comment"]; ?></p>  
-                          <?php endforeach; ?>                          
+                          <div class="scroll">
+                            <?php foreach($result as $item) : ?>
+                              <div class="output_username">
+                                  <p>名前: <span class="output_username_content"><?php echo $item["username"]; ?></span></p>
+                                  <p>: <?php echo $item["postdate"]; ?></p>
+                              </div>
+                              <div class="comment_content">
+                                <p class="output_comment"><?php echo $item["comment"]; ?></p>
+                                <button class="delete_comment"><a href="comment_delete.php?id=<?= $item["id"]; ?>">削除</a></button>
+                              </div>
+                            <?php endforeach; ?>
+                          </div>
                         </div>
                     </article>
                 </div>
@@ -96,6 +100,11 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="crime_name_content">
                             <label for="crime_name">罪名</label>
                             <input type="text" name="crime_name" id="crime_name">
+                            <div class="section_select">
+                              <span>刑事第</span>
+                              <input type="text" name="section">
+                              <span>課</span>
+                            </div>
                         </div>
                         <!-- 犯罪日時 -->
                         <div class="crime_date_time">
@@ -155,5 +164,14 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </form>
         </div>
     </div>
+    <script>
+      const deleteComment = document.querySelector(".delete_comment");
+      deleteComment.addEventListener("click", () => {
+        alert("本当に削除しますか。");
+      });
+
+      let target = document.querySelector('.scroll');
+      target.scrollIntoView(false);
+    </script>
 </body>
 </html>

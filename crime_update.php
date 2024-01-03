@@ -1,9 +1,11 @@
 <?php 
 ini_set('display_errors', 1);
 include('functions.php');
+
 // echo '<pre>';
-// var_dump($_POST);
+// print_r($_POST);
 // echo '</pre>';
+// exit();
 
 // POSTデータ確認
 if (
@@ -21,26 +23,29 @@ if (
     !isset($_POST['victim_address']) || $_POST['victim_address'] === '' ||
     !isset($_POST['victim_work']) || $_POST['victim_work'] === '' ||
     !isset($_POST['victim_name']) || $_POST['victim_name'] === '' ||
-    !isset($_POST['victim_birthday']) || $_POST['victim_birthday'] === ''
-  ) {
+    !isset($_POST['victim_birthday']) || $_POST['victim_birthday'] === '' ||
+    !isset($_POST['id']) || $_POST['id'] === ''
+) {
     exit('ParamError');
-  }
+}
 
-  $fact = $_POST['fact'];
-  $crime_name = $_POST['crime_name'];
-  $section = $_POST['section'];
-  $crime_date = $_POST['crime_date'];
-  $crime_time = $_POST['crime_time'];
-  $crime_place = $_POST['crime_place'];
-  $suspect_honseki = $_POST['suspect_honseki'];
-  $suspect_address = $_POST['suspect_address'];
-  $suspect_work = $_POST['suspect_work'];
-  $suspect_name = $_POST['suspect_name'];
-  $suspect_birthday = $_POST['suspect_birthday'];
-  $victim_address = $_POST['victim_address'];
-  $victim_work = $_POST['victim_work'];
-  $victim_name = $_POST['victim_name'];
-  $victim_birthday = $_POST['victim_birthday'];
+$fact = $_POST['fact'];
+$crime_name = $_POST['crime_name'];
+$section = $_POST['section'];
+$crime_date = $_POST['crime_date'];
+$crime_time = $_POST['crime_time'];
+$crime_place = $_POST['crime_place'];
+$suspect_honseki = $_POST['suspect_honseki'];
+$suspect_address = $_POST['suspect_address'];
+$suspect_work = $_POST['suspect_work'];
+$suspect_name = $_POST['suspect_name'];
+$suspect_birthday = $_POST['suspect_birthday'];
+$victim_address = $_POST['victim_address'];
+$victim_work = $_POST['victim_work'];
+$victim_name = $_POST['victim_name'];
+$victim_birthday = $_POST['victim_birthday'];
+$id = $_POST["id"];
+
 
 
 // DB接続
@@ -49,17 +54,11 @@ $pdo = connect_to_db();
 // echo "DB成功";
 // exit();
 
-
 // SQL作成&実行
-$sql = 'INSERT INTO about_fact (id, fact, crime_name, section, crime_date, crime_time, crime_place, 
-                                suspect_honseki, suspect_address, suspect_work, suspect_name, suspect_birthday, 
-                                victim_address, victim_work, victim_name, victim_birthday,
-                                created_at, updated_at) 
-                                VALUES (NULL, :fact, :crime_name, :section, :crime_date, :crime_time, :crime_place, 
-                                :suspect_honseki, :suspect_address, :suspect_work, :suspect_name, :suspect_birthday,
-                                :victim_address, :victim_work, :victim_name, :victim_birthday,
-                                now(), now()
-                                )'; // 事実
+$sql = 'UPDATE about_fact SET fact=:fact, crime_name=:crime_name, section=:section, crime_date=:crime_date,
+        crime_time=:crime_time, crime_place=:crime_place, suspect_honseki=:suspect_honseki, suspect_address=:suspect_address,
+        suspect_work=:suspect_work, suspect_name=:suspect_name, suspect_birthday=:suspect_birthday, victim_address=:victim_address,
+        victim_work=:victim_work, victim_name=:victim_name, victim_birthday=:victim_birthday, updated_at=now() WHERE id=:id';
 
 
 $stmt = $pdo->prepare($sql);
@@ -82,6 +81,7 @@ $stmt->bindValue(':victim_address', $victim_address, PDO::PARAM_STR);
 $stmt->bindValue(':victim_work', $victim_work, PDO::PARAM_STR);
 $stmt->bindValue(':victim_name', $victim_name, PDO::PARAM_STR);
 $stmt->bindValue(':victim_birthday', $victim_birthday, PDO::PARAM_STR);
+$stmt->bindValue(':id', $id, PDO::PARAM_STR);
 
 // SQL実行（実行に失敗すると `sql error ...` が出力される）
 try {
@@ -94,8 +94,3 @@ try {
 // 入力画面に戻る
 header('Location: crime_read.php');
 exit();
-
-
-
-
-; ?>

@@ -8,20 +8,20 @@
 </head>
 <body>
     <div class="inner">
-        <div class="side_bar">
-            <button class="sidebar_button">
+        <header class="header">
+            <button class="header_button active">
                 <a href="index.php">トップ</a>
             </button>
-            <button class="sidebar_button">
+            <button class="header_button">
                 <a href="crime_input.php">新規事件</a>
             </button>
-            <button class="sidebar_button">
+            <button class="header_button">
                 <a href="crime_read.php">事件一覧</a>
             </button>
-            <button class="sidebar_button">
+            <button class="header_button">
                 <a href="crime_input.php">事件検索</a>
             </button>
-        </div>
+        </header>
         <div class="main_content">
             <div class="description">
                 <h3>犯罪事実を疎明する報告書を効率よく作成しよう</h3>

@@ -1,57 +1,73 @@
 body {
-    box-sizing: border-box;
-    padding: 0 4%;
-    background-color: white;
+  box-sizing: border-box;
+  background-color: white;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    display: block;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+button {
+  font-size: 20px;
+  padding: 4px 20px;
+  border: none;
+  background-color: #656565;
+  color: white;
+  width: 20%;
+  margin: 0 auto;
+}
+
+button:hover {
+  opacity: 0.7;
 }
 
 .inner {
-    display: flex;
-    margin: 0;
-
+  width: 95%;
+  margin: 0 auto;
 }
 
-.side_bar {
-    background-color: rgb(32, 172, 232);
-    width: 15%;
-    height: 500px;
+header {
+  display: flex;
+  justify-content: space-around;
 }
 
-.sidebar_button {
-    background-color: rgb(32, 172, 232);
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid #09729f;
-    box-shadow: 1px 1px 1px #05435e;
-    margin-bottom: 12px;
+.header_button {
+  width: 20%;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  transition: 0.4s;
+}
+.header_button.active {
+  display: block;
+  background-color: #fff;
+  color: black;
+  border: 1px solid gray;
+  border-bottom: none;
+}
+.header_button.active a {
+  color: black;
 }
 
-.sidebar_button:hover {
-    background-color: rgba(32, 172, 232, 0.5);
+.header_button:hover {
+  /* background-color: rgba(32, 172, 232, 0.5); */
 }
-
 
 .main_content {
-    width: 85%;
-    background-color: rgb(152, 180, 192);
-    padding: 20px 30px;
+  background-color: rgb(152, 180, 192);
+  padding: 20px 30px;
+  border: 1px solid #656565;
 }
 
-
 h3 {
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 p {
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
-

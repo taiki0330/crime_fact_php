@@ -1,0 +1,90 @@
+            <!-- <?php for($i = 0; $i < count($result); $i++) : ?>
+                  <?php if($result[$i]["section"] == 1) : ?>
+                        <?php $section1Arr += $result[$i]; ?>
+                        <?php 
+                        echo '<pre>';
+                        print_r($section1Arr);
+                        echo '</pre>';
+                        ; ?>
+                        <?php foreach($section1Arr as $item1) : ?>
+                            <li class="title_item"><a href='crime_read.php?id={$item["id"]}'>edit</a>
+                              <p>発生日: <?= $item1["crime_date"] ?></p>
+                              <p>発生時間: <?= $item1["crime_time"] ?></p>
+                              <p>罪名: <?= $item1["crime_name"] ?></p>
+                              <p>発生場所: <?= $item1["crime_place"] ?></p>
+                              <!-- <input type="hidden", value="<?= $item["id"]?>"> -->              
+                            </li>
+                        <?php endforeach; ?>
+                  <?php  elseif($result[$i]["section"] == 2) : ?>
+                        <?php $section2Arr += $result[$i]; ?>
+                        <?php foreach($section2Arr as $item2) : ?>
+                            <li class="title_item"><a href='crime_read.php?id={$item["id"]}'>edit</a>
+                              <p>発生日: <?= $item2["crime_date"] ?></p>
+                              <p>発生時間: <?= $item2["crime_time"] ?></p>
+                              <p>罪名: <?= $item2["crime_name"] ?></p>
+                              <p>発生場所: <?= $item2["crime_place"] ?></p>
+                              <!-- <input type="hidden", value="<?= $item["id"]?>"> -->              
+                            </li>
+                        <?php endforeach; ?>
+                  <?php  else : ?>
+                    var_dump('no section');
+                  <?php endif; ?>
+            <?php endfor; ?> -->
+
+
+
+
+
+
+
+
+
+            // // jsonに変換
+      // const resultArray = <?= json_encode($result)?>;
+      // console.log(resultArray);
+      // console.log(resultArray[0].crime_name);
+
+      // const listParent = document.querySelector('.title_list'); // ul要素を取得
+      // // console.log(listParent);
+      // const listItem = document.querySelectorAll('.title_item'); // li要素を全て取得
+      // // console.log(listItem);
+
+      // // 刑事１、２、３課のボタン全てに対する処理
+      // const listValue = document.querySelectorAll('.main_genre_item');
+      // listValue.forEach((data) => {
+      //   data.addEventListener('click', (e) => { // ボタンクリック処理
+      //     onclick(e); // onclickという関数を実行（下記のとおり）
+      //   })
+      // })
+
+      // // onclick関数(ボタンクリック処理)を定義
+      // function onclick(e) {
+      //   // ボタンを取得
+      //   const list = e.target;
+      //   // ボタンにあらかじめ設定したvalueを取得
+      //   const listValue = list.value;
+      //   // jsonオブジェクトのsectionとボタンのvalueを比較して新しい配列を定義
+      //   const filteredList = resultArray.filter(result => 
+      //   result.section == listValue);
+      //   console.log(filteredList); // [{}, {}, {}] (例：section=1, value=1の配列)
+      //   renderList(filteredList); // renderListという関数を実行(下記のとおり)
+      // }
+
+      // // renderList関数(htmlに表示する)を定義
+      // function renderList(filteredList) {
+      //   // 空配列を定義        
+      //   let list = "";
+      //   // 上のfilterで抽出された配列の要素renderedItemとし、全てに適用
+      //   for(const renderedItem of filteredList) {
+      //     list += `<li class="title_item"><a href=''>edit</a>
+      //         <form method="POST">
+      //         <p crime_date=${renderedItem.crime_date}>発生日: ${renderedItem.crime_date}</p>
+      //         <p>発生時間: ${renderedItem.crime_time}</p>
+      //         <p>罪名: ${renderedItem.crime_name}</p>
+      //         <p>発生場所: ${renderedItem.crime_place}</p>
+      //         <button>詳細</button>
+      //         </li>
+      //         </form>`;
+      //   }
+      //   listParent.innerHTML = list; // htmlのulのli要素を変更
+      // }
