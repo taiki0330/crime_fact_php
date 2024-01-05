@@ -131,6 +131,7 @@ foreach($result as $item) {
                     <p class="crime_name">罪名: <span class="crime_name_1"><?= $item1["crime_name"] ?></span></p>
                     <p class="crime_place">発生場所: <?= $item1["crime_place"] ?></p>
                     <a href='crime_edit.php?id=<?= $item1["id"]?>' class="edit_button">編集管理</a>
+                    <a href="crime_paper.php?id=<?= $item1["id"]?>" class="paper_button">報告書</a>
                   </li>
                   <div class="accordion_content">
                     <p class="accordion_fact">
