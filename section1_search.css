@@ -1,0 +1,336 @@
+body {
+    box-sizing: border-box;
+    background-color: rgb(241, 241, 241);
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+  
+  button {
+    font-size: 20px;
+    padding: 4px 20px;
+    border: none;
+    background-color: #656565;
+    color: white;
+    width: 20%;
+    margin: 0 auto;
+  }
+  
+  button:hover {
+    opacity: 0.7;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  .inner {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .header_button {
+    width: 20%;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    transition: 0.4s;
+  }
+  .header_button.active {
+    display: block;
+    background-color: #fff;
+    color: black;
+    border: 1px solid gray;
+    border-bottom: none;
+  }
+  .header_button.active a {
+    color: black  ;
+  }
+  
+  /* 刑事１、２、３課 */
+  .main_genre {
+    background-color: #fff;
+    margin-top: 50px;
+  }
+  
+  .main_genre_list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+  
+  .main_genre_item {
+    background-color: rgb(110, 110, 110);
+    display: block;
+    padding: 10px 30px;
+    width: 20%;
+    text-align: center;
+    color: white;
+    border: none;
+    /* box-shadow: 0 0px 4px gray; */
+    border-bottom: none;
+    border-right: 0.5px solid gray;
+    border-left: 0.5px solid gray;
+    border-top: 0.5px solid gray;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    transition: 0.4s;
+  }
+  .main_genre_item:not(.active):hover {
+    background-color: rgba(110, 110, 110, 0.7);
+  }
+  .main_genre_item.active {
+    background-color: #fff;
+    color: #000;
+  }
+  /* 事件タイトル表示 */
+  .title_section {
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 1px 5px rgb(161, 161, 161);
+    margin: 0;
+    border-top: none;
+    padding: 50px 0;
+  }
+  .title_wrapper ul {
+    /* border: 1px solid black; */
+    margin: 0;
+    padding: 0 10px;
+  }
+  
+  .title_content_item {
+    display: none;
+  }
+  
+  .title_content_item.active {
+    display: block;
+  }
+  
+  .title_wrapper ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    /* margin-top: 30px; */
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    /* box-shadow: 0 0 5px gray; */
+    border: 2px solid gray;
+    padding: 5px 10px;
+  }
+  .title_wrapper ul li p {
+    padding: 5px 10px;
+    margin: auto 20px;
+  }
+  /* .title_wrapper ul li:hover {
+    background-color: rgba(119, 37, 226, 0.7);
+  } */
+  
+  .crime_name_whole {
+    color: #000;
+    font-weight: bold;
+  }
+  .crime_name_1 {
+    color: red;
+    font-weight: bold;
+  }
+  .crime_name_2 {
+    color: green;
+    font-weight: bold;
+  }
+  .crime_name_3 {
+    color: blue;
+    font-weight: bold;
+  }
+  
+  .main_content {
+    background-color: white;
+    box-shadow: 0 0 5px gray;
+    padding: 20px 30px;
+  }
+  
+  h4 {
+    margin-bottom: 5px;
+  }
+  
+  p {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
+  
+  .suspect_inner,
+  .victim_inner {
+    padding: 20px 30px;
+    background-color: #b1d4e3;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .suspect_wnb_inner,
+  .victim_wnb_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  
+  .output_suspect_honseki,
+  .output_suspect_address,
+  .output_victim_address,
+  .output_suspect_work,
+  .output_suspect_name,
+  .output_suspect_birthday,
+  .output_victim_work,
+  .output_victim_name,
+  .output_victim_birthday {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .output_suspect_honseki p,
+  .output_suspect_address p,
+  .output_victim_address p {
+    width: 90%;
+  }
+  .output_suspect_work,
+  .output_suspect_name,
+  .output_suspect_birthday,
+  .output_victim_work,
+  .output_victim_name,
+  .output_victim_birthday {
+    width: 30%;
+  }
+  .output_suspect_work h4,
+  .output_suspect_name h4,
+  .output_suspect_birthday h4,
+  .output_victim_work h4,
+  .output_victim_name h4,
+  .output_victim_birthday h4 {
+    margin-right: 20px;
+  }
+  .output_suspect_work p,
+  .output_suspect_name p,
+  .output_suspect_birthday p,
+  .output_victim_work p,
+  .output_victim_name p,
+  .output_victim_birthday p {
+    width: 60%;
+  }
+  
+  .title_item {
+    position: relative;
+    transition: 1s;
+  }
+  .crime_time {
+    position: absolute;
+    left: 200px;
+  }
+  .crime_name {
+    position: absolute;
+    left: 400px;
+  }
+  .crime_place {
+    position: absolute;
+    left: 600px;
+  }
+  .edit_button {
+    border: 1px solid black;
+    position: absolute;
+    right: 100px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(173, 173, 173);
+    padding: 3px 6px;
+  }
+  .edit_button:hover {
+    background-color: rgb(173, 173, 173, 0.7);
+  }
+  .paper_button {
+    border: 1px solid black;
+    position: absolute;
+    right: 30px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(173, 173, 173);
+    padding: 3px 6px;
+  }
+  .title_item::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+    opacity: 0.25;
+    font-size: 0.7rem;
+    vertical-align: middle;
+    transition: 0.1s ease-in-out;
+  }
+  .title_item.show {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .title_item.show::before {
+  transform: rotate(90deg);
+  }
+  .accordion_content.show {
+    display: block;
+    border: 2px solid gray;
+    box-shadow: none;
+    border-top: none;
+  }
+  .accordion_content {
+    margin-bottom: 50px;
+    font-size: 12px;
+    box-shadow: 0 0 3px gray;
+    display: none;
+  }
+  .accordion_content input {
+    border: none;
+    background-color: #dbdbdb;
+    border-radius: 5px;
+    padding: 3px 5px;
+  }
+  .accordion_fact {
+    display: flex;
+    margin: 0;
+  }
+  .accordion_fact textarea {
+    width: 90%;
+    height: 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: #dbdbdb;
+    border-radius: 5px;
+  }
+  .accordion_suspect_victim {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+  .accordion_suspect p,
+  .accordion_victim p
+  {
+    padding: 0;
+  }
+  .accordion_suspect_honseki {
+    width: 100%;
+  }
+  .accordion_suspect_address,
+  .accordion_victim_address {
+    width: 100%;
+  }
