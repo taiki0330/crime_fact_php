@@ -1,6 +1,6 @@
 body {
   box-sizing: border-box;
-  background-color: white;
+  background-color: rgb(241, 241, 241);
 }
 
 a {
@@ -60,6 +60,12 @@ header {
   background-color: white;
   box-shadow: 0 0 5px gray;
   padding: 20px 30px;
+}
+
+.back-button {
+  width: 80px;
+  border-radius: 5px;
+  background-color: #a5a5a5;
 }
 /* 事実について */
 .about_fact {

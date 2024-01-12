@@ -112,7 +112,8 @@ foreach($result as $item) {
         <section class="main_genre">
           <div class="main_genre_container">
             <ul class="main_genre_list">
-              <li class="main_genre_item active" value="1">刑事第一課</li>
+              <li class="main_genre_item active">全体</li>
+              <li class="main_genre_item" value="1">刑事第一課</li>
               <li class="main_genre_item" value="2">刑事第二課</li>
               <li class="main_genre_item" value="3">刑事第三課</li>
             </ul>
@@ -122,60 +123,117 @@ foreach($result as $item) {
         <section class="title_section">
           <div class="title_wrapper">
             <ul class="title_list">
-              <div class="title_content_item active">
-                  <?php foreach($section1Arr as $item1) : ?>
+            <div class="title_content_item active">
+                  <?php foreach($result as $item) : ?>
                   <li class="title_item">
-                    <!-- <a href='crime_read.php?id=<?= $item1["id"]?>'>表示する</a> -->
-                    <p>発生日: <?= $item1["crime_date"] ?></p>
-                    <p class="crime_time">発生時間: <?= $item1["crime_time"] ?></p>
-                    <p class="crime_name">罪名: <span class="crime_name_1"><?= $item1["crime_name"] ?></span></p>
-                    <p class="crime_place">発生場所: <?= $item1["crime_place"] ?></p>
-                    <a href='crime_edit.php?id=<?= $item1["id"]?>' class="edit_button">編集管理</a>
-                    <a href="crime_paper.php?id=<?= $item1["id"]?>" class="paper_button">報告書</a>
+                    <!-- <a href='crime_read.php?id=<?= $item["id"]?>'>表示する</a> -->
+                    <p class="crime_date">発生日: <?= $item["crime_date"] ?></p>
+                    <p class="crime_time">発生時間: <?= $item["crime_time"] ?></p>
+                    <p class="crime_name">罪名: <span class="crime_name_whole"><?= $item["crime_name"] ?></span></p>
+                    <p class="crime_place">発生場所: <?= $item["crime_place"] ?></p>
+                    <a href='crime_edit.php?id=<?= $item["id"]?>' class="edit_button">編集管理</a>
+                    <a href="crime_paper.php?id=<?= $item["id"]?>" class="paper_button">報告書</a>
                   </li>
                   <div class="accordion_content">
                     <p class="accordion_fact">
                       <label for="">事実:</label> 
-                      <textarea name="" id="" cols="30" rows="10"><?= $item1["fact"]?></textarea>
+                      <textarea name="" id="" cols="30" rows="10"><?= $item["fact"]?></textarea>
                     </p>
                     <div class="accordion_suspect_victim">
                       <div class="accordion_suspect">
                         <p>被疑者</p>
                         <label for="">本籍</label>
-                        <input class="accordion_suspect_honseki" type="text" value=<?= $item1["suspect_honseki"]?>>
+                        <input class="accordion_suspect_honseki" type="text" value=<?= $item["suspect_honseki"]?>>
                         <p>
                           <label for="">住居</label>
-                          <input class="accordion_suspect_address" type="text" value=<?= $item1["suspect_address"]?>>
+                          <input class="accordion_suspect_address" type="text" value=<?= $item["suspect_address"]?>>
                         </p>
                         <p>
                           <label for="">職業</label>
-                          <input type="text" value=<?= $item1["suspect_work"]?>>
+                          <input type="text" value=<?= $item["suspect_work"]?>>
                           <label for="">氏名</label>
-                          <input type="text" value=<?= $item1["suspect_name"]?>>
+                          <input type="text" value=<?= $item["suspect_name"]?>>
                           <label for="">生年月日</label>
-                          <input type="text" value=<?= $item1["suspect_birthday"]?>>
+                          <input type="text" value=<?= $item["suspect_birthday"]?>>
                         </p>
                       </div>
                       <div class="accordion_victim">
                         <p>被害者</p>
                         <p>
                           <label for="">住居</label>
-                          <input class="accordion_victim_address" type="text" value=<?= $item1["victim_address"]?>>
+                          <input class="accordion_victim_address" type="text" value=<?= $item["victim_address"]?>>
                         </p>
                         <p>
                           <label for="">職業</label>
-                          <input type="text" value=<?= $item1["victim_work"]?>>
+                          <input type="text" value=<?= $item["victim_work"]?>>
                           <label for="">氏名</label>
-                          <input type="text" value=<?= $item1["victim_name"]?>>
+                          <input type="text" value=<?= $item["victim_name"]?>>
                           <label for="">生年月日</label>
-                          <input type="text" value=<?= $item1["victim_birthday"]?>>
+                          <input type="text" value=<?= $item["victim_birthday"]?>>
                         </p>
                       </div>
                     </div>
                   </div>
                   <?php endforeach; ?>
-                </div>
+              </div>
               <div class="title_content_item">
+                  <div class="list_content">
+                  <a href="section1.php" style="color:black">さらに表示</a>
+                  <?php foreach($section1Arr as $item1) : ?>
+                      <li class="title_item">
+                        <!-- <a href='crime_read.php?id=<?= $item1["id"]?>'>表示する</a> -->
+                        <p>発生日: <?= $item1["crime_date"] ?></p>
+                        <p class="crime_time">発生時間: <?= $item1["crime_time"] ?></p>
+                        <p class="crime_name">罪名: <span class="crime_name_1"><?= $item1["crime_name"] ?></span></p>
+                        <p class="crime_place">発生場所: <?= $item1["crime_place"] ?></p>
+                        <a href='crime_edit.php?id=<?= $item1["id"]?>' class="edit_button">編集管理</a>
+                        <a href="crime_paper.php?id=<?= $item1["id"]?>" class="paper_button">報告書</a>
+                      </li>
+                      <div class="accordion_content">
+                        <p class="accordion_fact">
+                          <label for="">事実:</label> 
+                          <textarea name="" id="" cols="30" rows="10"><?= $item1["fact"]?></textarea>
+                        </p>
+                        <div class="accordion_suspect_victim">
+                          <div class="accordion_suspect">
+                            <p>被疑者</p>
+                            <label for="">本籍</label>
+                            <input class="accordion_suspect_honseki" type="text" value=<?= $item1["suspect_honseki"]?>>
+                            <p>
+                              <label for="">住居</label>
+                              <input class="accordion_suspect_address" type="text" value=<?= $item1["suspect_address"]?>>
+                            </p>
+                            <p>
+                              <label for="">職業</label>
+                              <input type="text" value=<?= $item1["suspect_work"]?>>
+                              <label for="">氏名</label>
+                              <input type="text" value=<?= $item1["suspect_name"]?>>
+                              <label for="">生年月日</label>
+                              <input type="text" value=<?= $item1["suspect_birthday"]?>>
+                            </p>
+                          </div>
+                          <div class="accordion_victim">
+                            <p>被害者</p>
+                            <p>
+                              <label for="">住居</label>
+                              <input class="accordion_victim_address" type="text" value=<?= $item1["victim_address"]?>>
+                            </p>
+                            <p>
+                              <label for="">職業</label>
+                              <input type="text" value=<?= $item1["victim_work"]?>>
+                              <label for="">氏名</label>
+                              <input type="text" value=<?= $item1["victim_name"]?>>
+                              <label for="">生年月日</label>
+                              <input type="text" value=<?= $item1["victim_birthday"]?>>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <?php endforeach; ?>
+                    </div>                  
+              </div>
+              <div class="title_content_item">
+                <a href="section2.php" style="color:black">さらに表示</a>
                   <?php foreach($section2Arr as $item2) : ?>
                   <li class="title_item">
                     <!-- <a href='crime_read.php?id=<?= $item2["id"]?>'>表示する</a> -->
@@ -228,6 +286,7 @@ foreach($result as $item) {
                   <?php endforeach; ?>
               </div>
               <div class="title_content_item">
+                <a href="section3.php" style="color:black">さらに表示</a>
                   <?php foreach($section3Arr as $item3) : ?>
                   <li class="title_item">
                     <!-- <a href='crime_read.php?id=<?= $item3["id"]?>'>表示する</a> -->
@@ -284,41 +343,6 @@ foreach($result as $item) {
         </section>
     </div>
 
-    <script>
-      const genreItem = document.querySelectorAll('.main_genre_item');
-      const titleItem = document.querySelectorAll('.title_content_item');
-      const toggler = document.querySelectorAll('.title_item');
-
-      // タブクリックで表示変更
-      for(let i = 0; i < genreItem.length; i++) {
-        genreItem[i].addEventListener('click', (e) => {
-          e.preventDefault();
-
-
-          for(let j = 0; j < genreItem.length; j++) {
-            genreItem[j].classList.remove("active");
-          }
-
-          for(let j = 0; j < genreItem.length; j++) {
-            titleItem[j].classList.remove("active");
-          }
-          genreItem[i].classList.add("active");
-          titleItem[i].classList.add("active");
-          console.log(titleItem[i]);
-        })
-      }
-
-      // アコーディオントグル
-      toggler.forEach((selected) => {
-        selected.addEventListener('click', () => {
-          selected.classList.toggle("show");
-          let content = selected.nextElementSibling;
-          content.classList.toggle("show");
-        })
-      })
-
-
-
-    </script>
+    <script src="./read.js"></script>
 </body>
 </html>

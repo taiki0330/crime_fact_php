@@ -159,19 +159,21 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                 <div class="">
-                    <button>登録</button>
+                    <button class="register_button">登録</button>
                 </div>
             </form>
         </div>
     </div>
     <script>
+      
+      let target = document.querySelector('.scroll');
+      target.scrollIntoView(false);
+
+      // なぜか機能しない
       const deleteComment = document.querySelector(".delete_comment");
       deleteComment.addEventListener("click", () => {
         alert("本当に削除しますか。");
       });
-
-      let target = document.querySelector('.scroll');
-      target.scrollIntoView(false);
-    </script>
+      </script>
 </body>
 </html>

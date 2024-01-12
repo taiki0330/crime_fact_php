@@ -64,6 +64,7 @@ $record = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </button>
       </header>
       <div class="main_content">
+        <button class="back-button"><a href="crime_read.php">戻る</a></button>
       <form action="crime_update.php" method="POST">
                 <section class="about_fact">
                     <div class="fact_content">

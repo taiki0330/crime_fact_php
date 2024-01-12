@@ -1,0 +1,47 @@
+.login {
+    width: 60%;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 5px gray;
+}
+
+.login_form {
+    text-align: center;
+    padding: 20px;
+}
+
+.login_name, 
+.login_pass
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 20px;
+}
+
+input {
+    width: 30%;
+    border-radius: 5px;
+    background-color: #dcdcdc;
+    border: none;
+    padding: 7px 10px;
+}
+
+button {
+    font-size: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 15px 40px;
+    background-color: rgb(243, 81, 11);
+    color: white;
+}
+
+button:hover {    
+    background-color: rgba(243, 81, 11, 0.7);
+}
+
